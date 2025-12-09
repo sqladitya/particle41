@@ -99,3 +99,11 @@ jobs:
       - name: Terraform Destroy
         if: github.event.inputs.action == 'destroy'
         run: terraform destroy -auto-approve -var="container_image=${{ env.DOCKER_IMAGE }}:latest"
+
+      - name: Auto Destroy (Testing)
+        if: github.event.inputs.action == 'apply' && github.ref == 'refs/heads/main'
+        run: |
+          echo "Waiting 2 minutes to verify deployment..."
+          sleep 120
+          echo "Auto-destroying to avoid AWS charges..."
+          terraform destroy -auto-approve -var="container_image=${{ env.DOCKER_IMAGE }}:latest"
