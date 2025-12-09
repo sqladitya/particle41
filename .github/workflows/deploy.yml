@@ -39,7 +39,6 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }}
 
     - name: Build and push Docker image
-      if: github.event.inputs.action == 'deploy'
       run: |
         cd app
         docker build -t ${{ env.DOCKER_IMAGE }}:latest .
