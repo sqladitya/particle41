@@ -179,6 +179,8 @@ GitHub Actions workflow included in `.github/workflows/deploy.yml`. Add these se
 - `AWS_ACCESS_KEY_ID`
 - `AWS_SECRET_ACCESS_KEY`
 
+**Note:** GitHub Actions deployment requires AWS account with permissions to create load balancers. If your account has restrictions, deploy manually from local system using the commands above.
+
 ---
 
 ## Contact
